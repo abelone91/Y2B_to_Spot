@@ -30,7 +30,7 @@ scopes = ["https://www.googleapis.com/auth/youtube.readonly"]
 
 
 
-class CreatePlaylist:
+class Y2B_to_Spot:
 
     def __init__(self):
 
@@ -269,5 +269,5 @@ class CreatePlaylist:
 #run class
 
 if __name__ == '__main__':
-    cp = CreatePlaylist()
+    cp = Y2B_to_Spot()
     cp.add_song_to_spotify_list()
