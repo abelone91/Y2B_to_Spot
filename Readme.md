@@ -4,7 +4,7 @@ Code uses youtube API, to extract artists and song names from a given youtube pl
 The information from youtube is used to search through spotify for the spotify song identifier uri. (spotify API)
 The uris are fed back to spotify API, to find the songs and add to the new spotify list. (spotify API)
 
-# how to use: 
+# How to use: 
 
 ## Getting your OAuth Credentials from youtube:
 
@@ -21,12 +21,10 @@ The uris are fed back to spotify API, to find the songs and add to the new spoti
 - playlist-modify-public
 - playlist-modify-private 
 
-under: 
-
-Required scopes for this endpoint
+  under "Required scopes for this endpoint"
 
 
-### user ID
+### Find your user ID:
 
 1. find your *user_name here: https://www.spotify.com/no-nb/account/overview/ 
 *NOTE: if you signed up spotify via facebook, your user_name should be entirely numerical 
@@ -36,14 +34,31 @@ Required scopes for this endpoint
 1. On your youtube profile under playlists, find the playlist you want to add to spotify 
 2. in url, your youtube playlist id should be the part right after "https://www.youtube.com/playlist?list="
 
-Example: 
+  Example: 
 
-https://www.youtube.com/playlist?list=PLjf37AovvUXrptV_XNk-KZq5kjIlHopZk
+  https://www.youtube.com/playlist?list=PLjf37AovvUXrptV_XNk-KZq5kjIlHopZk
 
-playlist ID: PLjf37AovvUXrptV_XNk-KZq5kjIlHopZk
+  playlist ID: PLjf37AovvUXrptV_XNk-KZq5kjIlHopZk
+
+# Code content & structure: 
+
+**Details about how the code is built and an explanation of the different blocks to follow**
+
+## Recources: 
+
+## Structure & function: 
+
+### Class CreatePlaylist
+
+### y2b login and grab item in specified list
+
+### Create new playist on spotify and extract playlist id
+
+### Search for song on spotify, and extract uris. append uris to list
+
+### Iterate through uris list and add to spotify list
 
 
-DETAILS about how the code is built and an explanation of the different blocks to follow. 
 
 
 
