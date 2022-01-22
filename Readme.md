@@ -90,9 +90,9 @@ Not all artists and songs can be found on spotify, the try block checks for the 
 
 This block of the code, loops through the urls list and sends a POST request to spotify. The POST request is to add the song to the playlist generated previously on spotify. 
 
-##Improvements: 
+## Improvements: 
 
- - At the different Try blocks, add an explanation of the error when Exception 
+ - At the different Try blocks, add an explanation of the error when Exception occurs.
 
 
 
