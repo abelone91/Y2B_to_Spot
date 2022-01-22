@@ -46,17 +46,54 @@ The uris are fed back to spotify API, to find the songs and add to the new spoti
 
 ## Recources: 
 
+ - Requests: https://docs.python-requests.org/en/latest/ 
+ - Spotify and Youtube API (referenced above) 
+ - json: https://docs.python.org/3/library/json.html
+ - youtube_dl: https://github.com/ytdl-org/youtube-dl/
+
+To install all Dependencies:
+```
+pip3 install -r requirements.txt
+```
+
 ## Structure & function: 
 
-### Class CreatePlaylist
+The following is a short explanation of the code structure. 
+
+### Class Y2B_to_Spot
+
+Use of class due to the interdeoendencies in the functions output in the code. Inputs and function output fed to the def __init__function, to easily reference later where needed. 
 
 ### y2b login and grab item in specified list
 
+First block of code follows the instruction for credential verification on the youtube API portal. The maximum results extracted for each request - you will discover - is 50 items. For youtube lists with >50 songs, a "nextPageToken" is printed in the response. This token is then used to generate another request and continue to grab video ids (vid_ids) for the playlist item untill the last page. Last page doesn't contain a "nextPageToken", while loop is then exited. All vid_ids are added to a list. 
+
+The vid_ids list is then looped through using youtube_dl to extract the name and artist variable for each song. The items are added to a dictionary (in pairs of song: artist) song_dict.
+
+Try block: 
+
+youtube videos not containing the name and artist paramters properly filled in the description generate an error. The code passes the error and proceeds to the next youtube song item on the list. 
+
 ### Create new playist on spotify and extract playlist id
+
+Using the code privided by spotify API guide for playlist generation, a POST request with json body containing the desired playlist name is sent. The response from the API will provide a playlist_id which will be used in the final step of the code. 
 
 ### Search for song on spotify, and extract uris. append uris to list
 
+The function loops through the song_dict and sends a GET request with the song name and artis to spotify API. Spotfy response will contain a unique song identifier called uri-a sort of url :) . The uris extracted and are added to a list called urls. 
+
+Try block: 
+
+Not all artists and songs can be found on spotify, the try block checks for the absence of a proper reponse containing a uri and skips to the next item on the dictionary.
+
 ### Iterate through uris list and add to spotify list
+
+This block of the code, loops through the urls list and sends a POST request to spotify. The POST request is to add the song to the playlist generated previously on spotify. 
+
+##Improvements: 
+
+ - At the different Try blocks, add an explanation of the error when Exception 
+
 
 
 
